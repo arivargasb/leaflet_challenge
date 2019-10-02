@@ -38,7 +38,7 @@ var myMap = L.map("map", {
             fillColor: getColor(earth[i].properties.mag),
             // Adjust radius
             radius: Math.round(earth[i].properties.mag*150000)
-          }).bindPopup("<h2>Location: " + earth[i].properties.place + "</h1> <hr> <h3>Magnitude: " +earth[i].properties.mag + "</h3>").addTo(myMap);
+          }).bindPopup("<h2>Location: " + earth[i].properties.place + "</h2> <hr> <h3>Magnitude: " +earth[i].properties.mag  +  "</h3>").addTo(myMap);
         //   console.log(getColor(earth[i].properties.mag), earth[i].properties.mag, Math.round(earth[i].properties.mag*150000));
         };
 
@@ -54,8 +54,9 @@ legend.onAdd = function (map) {
 
 	// loop through our magnitude intervals and generate a label with a colored square for each interval
 	for (var i = 0; i < magnitude.length; i++) {
-		div.innerHTML +=
-			'<i style="background:' + getColor(magnitude[i]) + '"></i> ' +
+    //alert('<i style="background-color:' + getColor(magnitude[i]) + '"></i> ');
+    div.innerHTML +=
+			'<i style="background-color:' + getColor(magnitude[i]) + ';">&nbsp&nbsp;</i> ' +
 			magnitude[i] + (magnitude[i + 1] ? '-' + (magnitude[i + 1]-.1) + '<br>' : '+');
 	}
 
